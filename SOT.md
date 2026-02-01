@@ -6,43 +6,47 @@ Maximize probability of Tier-1 quant internship offer.
 ## Decision (LOCKED)
 - ONE GitHub project only
 - Project: C++ Order Book / Matching Engine
-- Status: **IN PROGRESS**
+- Status: **COMPLETE**
 
-## MVP Scope (LOCKED)
-Build:
-- Order types: Market, Limit, Cancel
-- Matching: FIFO price-time priority
-- Partial fills with queue preservation
-- Data structure: std::map (red-black tree)
+## GitHub Repository
+https://github.com/Yorian-melki/orderbook
 
-Prove:
-- Correctness: unit tests (5 cases minimum)
-- Latency: ≤10μs median, ≤50μs p99 (student hardware)
-- Understanding: README with architecture + trade-offs
+## MVP Delivered
+| Artifact | Status |
+|----------|--------|
+| src/order.hpp | ✓ |
+| src/order_book.hpp | ✓ |
+| src/matching_engine.hpp | ✓ |
+| src/tests.cpp | ✓ 5/5 pass |
+| src/benchmark.cpp | ✓ 166ns median |
+| README.md | ✓ |
 
-Skip:
-- FIX protocol, Python bindings, multi-threading, real data, GUI
+## Proof Delivered
+| Proof | Target | Actual |
+|-------|--------|--------|
+| Correctness | 5 tests | 5/5 pass |
+| Latency (median) | ≤10 μs | 0.166 μs |
+| Latency (P99) | ≤50 μs | 0.334 μs |
+| Understanding | README | Architecture + trade-offs |
 
-## Verified Environment
-| Fact | Evidence |
-|------|----------|
-| OS | macOS (arm64-apple-darwin23) |
+## Environment
+| Fact | Value |
+|------|-------|
+| OS | macOS arm64 |
 | Compiler | Apple clang 15.0.0 |
-| C++ Standard | C++17 works |
-| Strict flags | -Wall -Werror pass |
+| Hardware | Apple Silicon M-series |
 
-## Progress
-| File | Status | Compiles |
-|------|--------|----------|
-| src/order.hpp | DONE | YES |
-| src/order_book.hpp | NOT STARTED | — |
-| src/matching_engine.cpp | NOT STARTED | — |
-| tests/ | NOT STARTED | — |
-| benchmark/ | NOT STARTED | — |
-| README.md | NOT STARTED | — |
+## Next Phase
+Use this project to apply to quant internships.
 
-## Next Action
-Create src/order_book.hpp
-
-## Blocked Until
-- Nothing. Proceed.
+## Completed Actions
+| Action | Outcome |
+|--------|---------|
+| Verify C++ compiler | ✓ clang 15.0.0 |
+| Create order.hpp | ✓ compiles |
+| Create order_book.hpp | ✓ compiles |
+| Create matching_engine.hpp | ✓ compiles |
+| Create tests.cpp | ✓ 5/5 pass |
+| Create benchmark.cpp | ✓ 166ns |
+| Create README.md | ✓ complete |
+| Push to GitHub | ✓ public |
