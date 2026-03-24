@@ -22,7 +22,10 @@ Benchmarked on Apple Silicon M-series (arm64), Apple clang 15.0.0, -O3 optimizat
 - **O(log n) add/match**: Red-black tree (`std::map`) for price levels
 - **O(1) cancel**: Hash map lookup for order location
 
-## Architecture┌─────────────────────────────────────────────────────────┐
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
 │                   MatchingEngine                        │
 │  ┌───────────────────────────────────────────────────┐  │
 │  │                   OrderBook                       │  │
@@ -38,7 +41,10 @@ Benchmarked on Apple Silicon M-series (arm64), Apple clang 15.0.0, -O3 optimizat
 │  │  │ (O(1) cancel lookup)                        │  │  │
 │  │  └─────────────────────────────────────────────┘  │  │
 │  └───────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────┘## Design Decisions
+└─────────────────────────────────────────────────────────┘
+```
+
+## Design Decisions
 
 ### Why `std::map` (red-black tree) for price levels?
 
@@ -76,6 +82,7 @@ Cancel operations must be O(1). Without this map, cancelling order #12345 would 
 **Speed benefit**: Cancel reduced from O(n) to O(1)
 
 ## Building
+
 ```bash
 # Compile with optimizations
 clang++ -std=c++17 -O3 -Wall -Werror src/benchmark.cpp -o benchmark
@@ -106,7 +113,10 @@ This is a **single-threaded** implementation. Production systems require:
 4. **Iceberg orders**: Hidden quantity support
 5. **Market data output**: L2/L3 book snapshots
 
-## File Structurequant-orderbook/
+## File Structure
+
+```
+quant-orderbook/
 ├── src/
 │   ├── order.hpp           # Order struct definition
 │   ├── order_book.hpp      # Order book data structure
@@ -114,7 +124,10 @@ This is a **single-threaded** implementation. Production systems require:
 │   ├── tests.cpp           # Unit tests
 │   └── benchmark.cpp       # Latency benchmark
 ├── README.md
-└── SOT.md                  # Project tracking## References
+└── SOT.md                  # Project tracking
+```
+
+## References
 
 - [Mercury Order Book](https://github.com/jonathanmcintyre/Mercury) - High-performance implementation (~320ns/order)
 - Almgren-Chriss framework - Optimal execution theory
